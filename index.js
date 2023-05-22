@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
+import eventRoutes from './routes/eventsRoutes.js';
 import { dbConnection } from './database/config.js';
 
 
@@ -25,7 +26,7 @@ app.use( express.json() );
 
 //Routes
 app.use('/api/auth', authRoutes)
-//TODO: crud
+app.use('/api/events', eventRoutes)
 
 //Listen petition
 app.listen( process.env.PORT, () => {
