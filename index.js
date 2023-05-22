@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
 import { dbConnection } from './database/config.js';
 
@@ -11,6 +12,10 @@ const app = express();
 
 //Connection database
 dbConnection();
+
+// CORS
+
+app.use(cors());
 
 //Public directory
 app.use( express.static('public') );
