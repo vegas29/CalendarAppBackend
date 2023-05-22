@@ -7,10 +7,6 @@ const isDate = (value) => {
     }
 
     const isValidDate = isValid(parseISO(value));
-    
-
-    console.log(isValidDate)
-
 
     if (isValidDate) {
         return true;
