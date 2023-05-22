@@ -1,5 +1,4 @@
 import { response } from 'express';
-import { validationResult } from 'express-validator';
 
 const createUser = (req, res = response) => {
 
