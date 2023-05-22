@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import authRoutes from './routes/authRoutes.js';
 
 
 dotenv.config();
@@ -11,12 +12,8 @@ const app = express();
 app.use( express.static('public') );
 
 //Routes
-// app.get('/', (req, res) => {
-//     console.log('ser requiere el /');
-//     res.json({
-//         ok: true
-//     })
-// });
+app.use('/api/auth', authRoutes)
+//TODO: crud
 
 //Listen petition
 app.listen( process.env.PORT, () => {
