@@ -1,16 +1,46 @@
 import { response } from 'express';
+import { validationResult } from 'express-validator';
 
 const createUser = (req, res = response) => {
-    res.json({
+
+    const { name, email, password } =  req.body;
+
+    const errors = validationResult( req );
+
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            ok: false,
+            errores: errors.mapped()
+        });
+    }
+
+    res.status(201).json({
         ok: true,
-        msg: 'register'
+        msg: 'register',
+        name,
+        email,
+        password
     })
 }
 
 const loginUser = (req, res = response) => {
-    res.json({
+
+    const { email, password } =  req.body;
+
+    const errors = validationResult( req );
+
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            ok: false,
+            errores: errors.mapped()
+        });
+    }
+
+    res.status(201).json({
         ok: true,
-        msg: 'login'
+        msg: 'login',
+        email,
+        password
     })
 }
 

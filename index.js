@@ -11,6 +11,9 @@ const app = express();
 //Public directory
 app.use( express.static('public') );
 
+//Read and parseo of body
+app.use( express.json() );
+
 //Routes
 app.use('/api/auth', authRoutes)
 //TODO: crud
