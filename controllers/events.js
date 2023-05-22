@@ -1,11 +1,13 @@
 import { response } from "express"
 import Event from "../models/Event.js";
 
-const getEvents = (req, res = response) => {
+const getEvents = async(req, res = response) => {
+
+    const events = await Event.find().populate('user', 'name');
     
     res.json({
         ok: true,
-        msg: 'getEvents'
+        events
     });
 
 }
