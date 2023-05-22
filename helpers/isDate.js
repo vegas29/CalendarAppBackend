@@ -1,4 +1,4 @@
-import { isValid } from 'date-fns';
+import { isValid, parseISO } from 'date-fns';
 
 const isDate = (value) => {
 
@@ -6,7 +6,10 @@ const isDate = (value) => {
         return false;
     }
 
-    const isValidDate = isValid(value);
+    const isValidDate = isValid(parseISO(value));
+    
+
+    console.log(isValidDate)
 
 
     if (isValidDate) {
